@@ -8,10 +8,19 @@ class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int T = Integer.parseInt(st.nextToken());
         for(int i = 0;i<T;i++) {
-            StringTokenizer st1 = new StringTokenizer(br1.readLine());
-            long first = Integer.parseInt(st1.nextToken());
-            long second = Integer.parseInt(st1.nextToken());
-            System.out.println((first/2) * (second/2) + (first / 2 + ((first % 2 == 0) ? 0 : 1)) * (second / 2 + ((second % 2 == 0) ? 0 : 1)));
+            StringTokenizer st1 = new StringTokenizer(br.readLine());
+            int critical = 0;
+            int chill = 0;
+            int N = Integer.parseInt(st1.nextToken());
+            int D = Integer.parseInt(st1.nextToken());
+            StringTokenizer st2 = new StringTokenizer(br.readLine());
+            for(int j=0;j<N;j++) {
+                int age = Integer.parseInt(st2.nextToken());
+                if((age>=80)||(age<=9)) critical ++;
+                else chill++;
+            }
+            System.out.println((critical / D + ((critical % D) == 0 ? 0 : 1)) +
+            (chill / D + ((chill % D) == 0 ? 0 : 1)));
         }
     }    
 }
